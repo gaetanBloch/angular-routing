@@ -1,5 +1,7 @@
 import { Server, ServerInfo } from './server.model';
+import { Injectable } from '@angular/core';
 
+@Injectable({providedIn: 'root'})
 export class ServerService {
   private servers = [
     new Server('Production server', 'online', 1),

@@ -9,7 +9,6 @@ import { UserComponent } from './users/user/user.component';
 import { EditServerComponent } from './servers/edit-server/edit-server.component';
 import { ServerComponent } from './servers/server/server.component';
 import { FormsModule } from '@angular/forms';
-import { ServerService } from './servers/server.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +24,7 @@ import { ServerService } from './servers/server.service';
     BrowserModule,
     FormsModule
   ],
-  providers: [ServerService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {
