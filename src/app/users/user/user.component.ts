@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
 import { User } from '../user.model';
 
 @Component({
@@ -9,10 +11,11 @@ import { User } from '../user.model';
 export class UserComponent implements OnInit {
   user: User;
 
-  constructor() {
+  constructor(private route: ActivatedRoute) {
   }
 
   ngOnInit() {
+    this.user = new User(+this.route.snapshot.paramMap.get('id'), this.route.snapshot.paramMap.get('name'));
   }
 
 }
