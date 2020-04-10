@@ -1,6 +1,6 @@
 import { Server, ServerInfo } from './server.model';
 
-export class ServersService {
+export class ServerService {
   private servers = [
     new Server('Production server', 'online', 1),
     new Server('Test server', 'offline', 2),

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { ServersService } from '../servers.service';
+import { ServerService } from '../server.service';
 import { Server } from '../server.model';
 
 @Component({
@@ -11,7 +11,7 @@ import { Server } from '../server.model';
 export class ServerComponent implements OnInit {
   server: Server;
 
-  constructor(private serversService: ServersService) {
+  constructor(private serversService: ServerService) {
   }
 
   ngOnInit() {
