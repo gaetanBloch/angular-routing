@@ -1,20 +1,10 @@
+import { Server, ServerInfo } from './server.model';
+
 export class ServersService {
   private servers = [
-    {
-      id: 1,
-      name: 'Productionserver',
-      status: 'online'
-    },
-    {
-      id: 2,
-      name: 'Testserver',
-      status: 'offline'
-    },
-    {
-      id: 3,
-      name: 'Devserver',
-      status: 'offline'
-    }
+    new Server('Production server', 'online', 1),
+    new Server('Test server', 'offline', 2),
+    new Server('Dev server', 'offline', 3)
   ];
 
   getServers() {
@@ -22,19 +12,14 @@ export class ServersService {
   }
 
   getServer(id: number) {
-    const server = this.servers.find(
-      (s) => {
-        return s.id === id;
-      }
+    return this.servers.find(
+      (s: Server) => s.id === id
     );
-    return server;
   }
 
-  updateServer(id: number, serverInfo: { name: string, status: string }) {
+  updateServer(id: number, serverInfo: ServerInfo) {
     const server = this.servers.find(
-      (s) => {
-        return s.id === id;
-      }
+      (s: Server) => s.id === id
     );
     if (server) {
       server.name = serverInfo.name;

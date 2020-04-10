@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { ServersService } from '../servers.service';
+import { Server, ServerInfo } from '../server.model';
 
 @Component({
   selector: 'app-edit-server',
@@ -8,11 +9,12 @@ import { ServersService } from '../servers.service';
   styleUrls: ['./edit-server.component.css']
 })
 export class EditServerComponent implements OnInit {
-  server: {id: number, name: string, status: string};
+  server: Server;
   serverName = '';
   serverStatus = '';
 
-  constructor(private serversService: ServersService) { }
+  constructor(private serversService: ServersService) {
+  }
 
   ngOnInit() {
     this.server = this.serversService.getServer(1);
@@ -21,7 +23,6 @@ export class EditServerComponent implements OnInit {
   }
 
   onUpdateServer() {
-    this.serversService.updateServer(this.server.id, {name: this.serverName, status: this.serverStatus});
+    this.serversService.updateServer(this.server.id, new ServerInfo(this.serverName, this.serverStatus));
   }
-
 }
