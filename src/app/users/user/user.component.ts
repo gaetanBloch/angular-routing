@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 
 import { User } from '../user.model';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.css']
 })
-export class UserComponent implements OnInit {
+export class UserComponent implements OnInit, OnDestroy {
   user: User;
+  paramsSubscription: Subscription;
 
   constructor(private route: ActivatedRoute) {
   }
@@ -23,9 +25,14 @@ export class UserComponent implements OnInit {
       this.route.snapshot.params.name
     );
     // Subscribe to change in parameters to reload the component
-    this.route.params.subscribe(
+    this.paramsSubscription = this.route.params.subscribe(
       (params: Params) => this.user = new User(params.id, params.name)
     );
+  }
+
+  ngOnDestroy(): void {
+    // Useless here because Angular does it for us
+    this.paramsSubscription.unsubscribe();
   }
 
 }
