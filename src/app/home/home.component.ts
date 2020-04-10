@@ -15,11 +15,14 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
-  onLoadServers(): void {
+  onLoadServer(id: number): void {
     // Complex calculation
     // (...)
     // this.router.navigateByUrl('/servers');
-    this.router.navigate(['/servers']);
+    this.router.navigate(
+      ['/servers', id, 'edit'],
+      {queryParams: {allowEdit: '1'}, fragment: 'loading'}
+    );
   }
 
 }
