@@ -20,11 +20,13 @@ export class EditServerComponent implements OnInit {
   }
 
   ngOnInit() {
+    // -- Does nothing --
     // The idea of how to access the query params and the fragment
     console.log(this.route.snapshot.queryParams);
     console.log(this.route.snapshot.fragment);
     this.route.queryParams.subscribe();
     this.route.fragment.subscribe();
+    // -- Does nothing --
 
     // Determine whether the server is editable or not
     this.route.queryParams.subscribe((queryParams: Params) => this.allowEdit = queryParams.allowEdit === '1');
