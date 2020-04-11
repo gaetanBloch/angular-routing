@@ -1,1 +1,11 @@
-<h4>{{ errorMessage }}</h4>
+<div class="row">
+  <div class="col-md-12 text-center">
+    <h1>Oops!</h1>
+    <h2>{{ httpCode }} {{ httpError }}</h2>
+    <div>Sorry, an error has occurred, {{ errorMessage }}</div>
+    <a class="btn btn-primary btn-lg" routerLink="/">
+      <span class="glyphicon glyphicon-home"></span>
+      Take Me Home
+    </a>
+  </div>
+</div>

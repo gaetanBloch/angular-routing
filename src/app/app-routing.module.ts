@@ -29,7 +29,7 @@ const appRoutes: Routes = [
     ]
   },
   // {path: 'not-found', component: PageNotFoundComponent},
-  {path: 'not-found', component: ErrorPageComponent, data: {message: 'Page not Found!'}},
+  {path: 'not-found', component: ErrorPageComponent, data: {code: '404', error: 'Not Found', message: 'Page not Found!'}},
   {path: '**', redirectTo: '/not-found'}
 ];
 
